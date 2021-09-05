@@ -174,6 +174,16 @@ public class GUI extends JFrame {
 					principalPanel.setVisible(true);
 					timer1.start();
 					this.writeNoMore();
+					
+					for(int i =0; i< principalPanel.getControl().getDictionaryRound().size(); i++) {
+						System.out.print(principalPanel.getControl().getDictionaryRound().get(i)+ "\n");
+					}
+					System.out.print("-----------------------");
+					
+					for(int i =0; i< principalPanel.getControl().getDictionaryRound2().size(); i++) {
+						System.out.print(principalPanel.getControl().getDictionaryRound2().get(i)+ "\n");
+					}
+					
 
 				}else {
 					player = new Player(panelLogin.getUserName().getText());
@@ -182,10 +192,20 @@ public class GUI extends JFrame {
 					principalPanel.setVisible(true); 
 					timer1.start();
 					this.writeNoMore();
+					
+					for(int i =0; i< principalPanel.getControl().getDictionaryRound().size(); i++) {
+						System.out.print(principalPanel.getControl().getDictionaryRound().get(i)+ "\n");
+					}
+					System.out.print("-----------------------");
+					
+					for(int i =0; i< principalPanel.getControl().getDictionaryRound2().size(); i++) {
+						System.out.print(principalPanel.getControl().getDictionaryRound2().get(i)+ "\n");
+					}
 
 				}
 			}if(e.getSource()== principalPanel.getNoMoreWords()) {
 				this.finishSerie= true;
+				principalPanel.getInputWord().setText(null);
 				if(principalPanel.myChronometer.isAlive() &&  this.finishSerie && word !=0 ) {
 					principalPanel.myChronometer.suspendThread();
 					timer1.restart();
@@ -207,7 +227,8 @@ public class GUI extends JFrame {
 						this.showJOptionPane();
 					}
 				}
-			}if(principalPanel.myChronometer != null && !principalPanel.myChronometer.isAlive()) {
+				this.showJOptionPane();
+			}if(principalPanel.myChronometer != null && !principalPanel.myChronometer.isAlive() && word !=0) {
 				this.showJOptionPane();
 				
 			}if(e.getSource() == principalPanel.getReStart()) {

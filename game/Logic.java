@@ -168,8 +168,8 @@ public class Logic {
 		}
 		if(this.round == 5 && this.countHits >= 18) {
 			
-			clearArrayRound();
-
+			this.countHits = 0;
+			this.copyArrayRound();
 			return true;
 		}
 		else {
@@ -179,17 +179,16 @@ public class Logic {
 		
 	} 
 	
+	
 	public void clearArrayRound() {
 		this.round++;
 		this.countHits = 0;
 		this.dictionaryRound.clear();
 		this.dictionaryRound2.clear();
 		this.addToArrayRound();
+		this.copyArrayRound();
 		
 		
-		if(this.round == 5) {
-			this.round = 5;
-		}
 	}
 	
 }
